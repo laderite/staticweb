@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Script Hub - Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Roblox Script Hub Dashboard</h1>
+            <div class="header-actions">
+                <span id="client-count" class="badge">0 clients connected</span>
+                <a href="/logout" class="btn btn-secondary">Logout</a>
+            </div>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>Connected Clients</h2>
+                <div class="table-container">
+                    <table id="clients-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>User ID</th>
+                                <th>Game</th>
+                                <th>Job ID</th>
+                                <th>Connected At</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Client data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Send Command</h2>
+                <form id="command-form">
+                    <div class="form-group">
+                        <label for="client-select">Target Client</label>
+                        <select id="client-select" name="clientId" required>
+                            <option value="all">All Clients</option>
+                            <!-- Client options will be populated here -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="command-select">Command</label>
+                        <select id="command-select" name="command" required>
+                            <option value="message">Send Message</option>
+                            <option value="kick">Kick Player</option>
+                        </select>
+                    </div>
+                    
+                    <div id="message-params" class="form-group">
+                        <label for="message-input">Message</label>
+                        <input type="text" id="message-input" name="message" placeholder="Enter message...">
+                    </div>
+                    
+                    <div id="kick-params" class="form-group" style="display: none;">
+                        <label for="kick-reason">Kick Reason</label>
+                        <input type="text" id="kick-reason" name="kickReason" placeholder="Enter kick reason...">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Send Command</button>
+                </form>
+                
+                <div id="command-result" class="result-message" style="display: none;"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

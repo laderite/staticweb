@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Script Hub - Login</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <h1>Roblox Script Hub</h1>
+        <h2>Admin Login</h2>
+        
+        <div id="error-message" class="error-message" style="display: none;">
+            Incorrect password. Please try again.
+        </div>
+        
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+
+    <script>
+        // Check for error parameter in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('error') === '1') {
+            document.getElementById('error-message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
